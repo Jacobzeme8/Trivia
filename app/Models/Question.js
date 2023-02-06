@@ -9,5 +9,17 @@ export class Question{
     this.question = data.question
     this.correctAnswer = data.correct_answer
   }
-  
+
+
+  get QuestionTemplate(){
+    return`
+    <p>${this.question}</p>
+    <form onsumbit="app.questionsController.checkAnswer()">
+      <label for="answer"><h4>Answer:</label>
+      <input class="form-control" id="answer" type="text" name="answer"></input>
+      <button class = "btn btn-success" type="submit">Submit Answer</button>
+    </form>
+    `
+  }
+
 }
