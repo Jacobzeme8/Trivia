@@ -5,16 +5,22 @@ import { setHTML } from "../Utils/Writer.js"
 import { trivia_api } from "./AxiosService.js"
 
 class QuestionService{
-  async drawQuestion() {
+  drawQuestion() {
     const Questions = appState.Questions
     let template = " "
-    console.log(Questions.length)
-    Questions.forEach(q => template += q.QuestionTemplate)
+    let x = Math.floor(Math.random()*appState.Questions.length)
+    appState.jakeQuestion = Questions[x]
+    template = appState.jakeQuestion.QuestionTemplate
     setHTML('question', template)
   }
 
   checkAnswer(formData){
-  }
+    console.log(formData);
+    
+    console.log(appState.jakeQuestion.correctAnswer.toUpperCase());
+      
+    }
+  
 
   async getQuestions() {
     const res = await trivia_api.get('?amount=10')

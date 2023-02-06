@@ -14,10 +14,10 @@ export class Question{
   get QuestionTemplate(){
     return`
     <p>${this.question}</p>
-    <form onsumbit="app.questionsController.checkAnswer()">
-      <label for="answer"><h4>Answer:</label>
+    <form onsubmit="app.questionsController.checkAnswer()">
+      <label for="answer">Answer:</label>
       <input class="form-control" id="answer" type="text" name="answer"></input>
-      <button class = "btn btn-success" type="submit">Submit Answer</button>
+      <button class ="btn btn-success" type="submit">Submit Answer</button>
     </form>
     `
   }

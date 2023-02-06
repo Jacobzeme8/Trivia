@@ -23,7 +23,7 @@ export class QuestionController{
 
 
 
-  async drawQuestion(){
+  drawQuestion(){
     try {
       questionService.drawQuestion()
     } catch (error) {
@@ -34,7 +34,9 @@ export class QuestionController{
   checkAnswer(){
     window.event.preventDefault()
     try {
-      
+      const form = window.event.target
+      const formData = getFormData(form)
+      questionService.checkAnswer(formData)
     } catch (error) {
       Pop.error(error)
     }
